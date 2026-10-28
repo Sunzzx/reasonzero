@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reasonzero"
+version = "0.1.0"
+description = "Test-Time Compute Engine: Monte Carlo Tree Search (MCTS) Reasoning Kernel with Step-Level Process Reward Models"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Ayush Kandwal", email = "ayushkandwal2007@gmail.com" }
+]
+dependencies = [
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+]
+
+[project.scripts]
+reasonzero = "reasonzero.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reasonzero"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
